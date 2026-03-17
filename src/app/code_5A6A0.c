@@ -345,7 +345,7 @@ static void func_802D3BE8(Unk802D3658_Arg0* arg0) {
 
     if (arg0->unk0 & 0x02) {
         if (arg0->unk1A4 < 15.0f) {
-            arg0->unkC8.m[3][2] += 4.0f * (1.0f - (FABS(arg0->unk1A4) / 15.0f));
+            arg0->unkC8.m[3][2] += 4.0f * (1.0f - (ABS_NOEQ(arg0->unk1A4) / 15.0f));
         }
     }
 
@@ -1008,14 +1008,14 @@ static void func_802D58EC(Unk802D3658_Arg0* arg0, Mtx4F* arg1) {
     uvMat4InvertTranslationRotation(&sp48, &sp88);
     uvMat4LocalToWorld(&sp48, &sp30, &sp3C);
 
-    var_fa0 = func_80313F08(&D_803599D0, FABS(2.5f * sp30.x)) * arg0->unk224;
+    var_fa0 = func_80313F08(&D_803599D0, ABS_NOEQ(2.5f * sp30.x)) * arg0->unk224;
     if (sp30.x < 0.0f) {
         var_fa0 = -var_fa0;
     }
     arg0->unk21C = func_80313AF4(var_fa0, arg0->unk21C, 1.0f);
     uvMat4RotateAxis(arg1, arg0->unk21C * 0.01745329f, 'z'); // almost DEG_TO_RAD(1)
 
-    var_fa0 = func_80313F08(&D_803599D0, FABS(2.5f * sp30.z)) * (arg0->unk224 * 0.5f);
+    var_fa0 = func_80313F08(&D_803599D0, ABS_NOEQ(2.5f * sp30.z)) * (arg0->unk224 * 0.5f);
     if (sp30.z > 0.0f) {
         var_fa0 = -var_fa0;
     }

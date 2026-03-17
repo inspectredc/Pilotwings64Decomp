@@ -56,7 +56,7 @@ s32 func_802FB784(JumbleHopperData* arg0, f32 arg1) {
         return 0;
     }
 
-    if (FABS(temp_fv1) < arg1) {
+    if (ABS_NOEQ(temp_fv1) < arg1) {
         return 1;
     }
     return 0;
@@ -258,11 +258,11 @@ void func_802FC018(JumbleHopperData* arg0) {
         uvVec3Copy(&sp2C, &arg0->unk15C);
         func_8034B2B0(&sp2C);
 
-        if (FABS(sp28) < 0.3f) {
+        if (ABS_NOEQ(sp28) < 0.3f) {
             sp28 = 0.3f;
         }
 
-        if (FABS(sp24) < 0.3f) {
+        if (ABS_NOEQ(sp24) < 0.3f) {
             sp24 = 0.3f;
         }
         arg0->unk15C.x = arg0->unk15C.x + (5.0f * sp28);
@@ -686,7 +686,7 @@ void func_802FD114(JumbleHopperData* arg0) {
 }
 
 void func_802FD388(JumbleHopperData* arg0) {
-    arg0->unk140.x -= (arg0->unk14 * FABS(arg0->unk14)) * 5.0;
+    arg0->unk140.x -= (arg0->unk14 * ABS_NOEQ(arg0->unk14)) * 5.0;
 }
 
 void func_802FD3E0(JumbleHopperData* arg0) {
@@ -960,7 +960,7 @@ void func_802FE2FC(JumbleHopperData* arg0) {
     f32 temp_fv1;
     f32 temp_fa0;
 
-    if (FABS(arg0->unk14) > 0.1) {
+    if (ABS_NOEQ(arg0->unk14) > 0.1) {
         arg0->unk590 -= arg0->unk14 * 700.0f * D_8034F854 * 0.6f;
         if (arg0->unk590 > 30.0f) {
             arg0->unk590 = 30.0f;
@@ -968,15 +968,15 @@ void func_802FE2FC(JumbleHopperData* arg0) {
             arg0->unk590 = -30.0f;
         }
     } else {
-        if (arg0->unk590 < 0) {
+        if (arg0->unk590 < 0.0f) {
             arg0->unk590 = arg0->unk590 + (700.0f * D_8034F854 * 0.6f);
-            if (arg0->unk590 > 0) {
-                arg0->unk590 = 0;
+            if (arg0->unk590 > 0.0f) {
+                arg0->unk590 = 0.0f;
             }
-        } else if (arg0->unk590 > 0) {
+        } else if (arg0->unk590 > 0.0f) {
             arg0->unk590 = arg0->unk590 - (700.0f * D_8034F854 * 0.6f);
-            if (arg0->unk590 < 0) {
-                arg0->unk590 = 0;
+            if (arg0->unk590 < 0.0f) {
+                arg0->unk590 = 0.0f;
             }
         }
     }
@@ -1199,58 +1199,58 @@ void func_802FF1BC(JumbleHopperData* arg0) {
     f32 temp;
     f32 var_fa1;
 
-    var_fa1 = FABS(arg0->unk540);
+    var_fa1 = ABS_NOEQ(arg0->unk540);
 
-    if (arg0->unk598 < 0) {
+    if (arg0->unk598 < 0.0f) {
         arg0->unk598 += 10.0 * D_8034F854 * 3.0;
-        if (arg0->unk598 > 0) {
-            arg0->unk598 = 0;
+        if (arg0->unk598 > 0.0f) {
+            arg0->unk598 = 0.0f;
         }
         func_802FBD1C(arg0, arg0->unk65B, arg0->unk598, 'z');
-    } else if (arg0->unk598 > 0) {
+    } else if (arg0->unk598 > 0.0f) {
         arg0->unk598 -= 10.0 * D_8034F854 * 3.0;
-        if (arg0->unk598 < 0) {
-            arg0->unk598 = 0;
+        if (arg0->unk598 < 0.0f) {
+            arg0->unk598 = 0.0f;
         }
         func_802FBD1C(arg0, arg0->unk65B, arg0->unk598, 'z');
     }
-    if (arg0->unk594 < 0) {
+    if (arg0->unk594 < 0.0f) {
         arg0->unk594 += 10.0 * D_8034F854 * 3.0;
-        if (arg0->unk594 > 0) {
-            arg0->unk594 = 0;
+        if (arg0->unk594 > 0.0f) {
+            arg0->unk594 = 0.0f;
         }
-    } else if (arg0->unk594 > 0) {
+    } else if (arg0->unk594 > 0.0f) {
         arg0->unk594 -= 10.0 * D_8034F854 * 3.0;
-        if (arg0->unk594 < 0) {
-            arg0->unk594 = 0;
+        if (arg0->unk594 < 0.0f) {
+            arg0->unk594 = 0.0f;
         }
     }
 
-    if (arg0->unk140.y < 0) {
+    if (arg0->unk140.y < 0.0f) {
         temp = (((2.0f * var_fa1) / 60.0) + 1.0);
         arg0->unk140.y += 10.0 * D_8034F854 * temp;
-        if (arg0->unk140.y > 0) {
-            arg0->unk140.y = 0;
+        if (arg0->unk140.y > 0.0f) {
+            arg0->unk140.y = 0.0f;
         }
-    } else if (arg0->unk140.y > 0) {
+    } else if (arg0->unk140.y > 0.0f) {
         temp = (((2.0f * var_fa1) / 60.0) + 1.0);
         arg0->unk140.y -= 10.0 * D_8034F854 * temp;
-        if (arg0->unk140.y < 0) {
-            arg0->unk140.y = 0;
+        if (arg0->unk140.y < 0.0f) {
+            arg0->unk140.y = 0.0f;
         }
     }
 
-    if (arg0->unk140.z < 0) {
+    if (arg0->unk140.z < 0.0f) {
         temp = (((2.0f * var_fa1) / 60.0) + 1.0);
         arg0->unk140.z += 10.0 * D_8034F854 * temp;
-        if (arg0->unk140.z > 0) {
-            arg0->unk140.z = 0;
+        if (arg0->unk140.z > 0.0f) {
+            arg0->unk140.z = 0.0f;
         }
-    } else if (arg0->unk140.z > 0) {
+    } else if (arg0->unk140.z > 0.0f) {
         temp = (((2.0f * var_fa1) / 60.0) + 1.0);
         arg0->unk140.z -= 10.0 * D_8034F854 * temp;
-        if (arg0->unk140.z < 0) {
-            arg0->unk140.z = 0;
+        if (arg0->unk140.z < 0.0f) {
+            arg0->unk140.z = 0.0f;
         }
     }
 }
@@ -1276,7 +1276,7 @@ void func_802FF654(JumbleHopperData* arg0) {
 
     switch (arg0->unk1A4) {
     case 0:
-        var_fa0 = FABS(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
+        var_fa0 = ABS_NOEQ(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
         arg0->unk1A8 = var_fa0 + 0.3f;
         arg0->unk140.y -= 300.0f * D_8034F854 * arg0->unk1A8;
         if (arg0->unk140.y < -180.0f) {
@@ -1323,7 +1323,7 @@ void func_802FF654(JumbleHopperData* arg0) {
         }
         break;
     case 3:
-        var_fa0 = FABS(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
+        var_fa0 = ABS_NOEQ(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
         arg0->unk1A8 = var_fa0 + 0.3f;
         arg0->unk140.y -= 300.0f * D_8034F854 * arg0->unk1A8;
         if (arg0->unk140.y < -330.0f) {
@@ -1351,7 +1351,7 @@ void func_802FFB3C(JumbleHopperData* arg0) {
 
     switch (arg0->unk1A4) {
     case 0:
-        var_fa0 = FABS(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
+        var_fa0 = ABS_NOEQ(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
         arg0->unk1A8 = var_fa0 + 0.3f;
         arg0->unk140.y += 300.0f * D_8034F854 * arg0->unk1A8;
         if (arg0->unk140.y > 180.0f) {
@@ -1398,7 +1398,7 @@ void func_802FFB3C(JumbleHopperData* arg0) {
         }
         break;
     case 3:
-        var_fa0 = FABS(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
+        var_fa0 = ABS_NOEQ(uvSinF(arg0->unk140.y * 0.0174533f * 0.5f));
         arg0->unk1A8 = var_fa0 + 0.3f;
         arg0->unk140.y += 300.0f * D_8034F854 * arg0->unk1A8;
         if (arg0->unk140.y > 330.0f) {
@@ -1460,7 +1460,7 @@ void func_80300018(JumbleHopperData* arg0) {
                 func_802FBD1C(arg0, arg0->unk653, arg0->unk5B8, 'x');
                 func_802FEBC4(arg0);
                 func_802FEEC0(arg0);
-            } else if (FABS(arg0->unk14) > 0.1f) {
+            } else if (ABS_NOEQ(arg0->unk14) > 0.1f) {
                 func_802FDF8C(arg0, arg0->unk14);
                 func_802FE054(arg0, arg0->unk14);
                 func_802FE1A8(arg0, -arg0->unk14);
@@ -1477,7 +1477,7 @@ void func_80300018(JumbleHopperData* arg0) {
             func_802FE7A0(arg0);
             func_802FEBC4(arg0);
             func_802FEEC0(arg0);
-        } else if (FABS(arg0->unk14) > 0.1f) {
+        } else if (ABS_NOEQ(arg0->unk14) > 0.1f) {
             func_802FDF8C(arg0, arg0->unk14);
             func_802FE054(arg0, arg0->unk14);
             func_802FE1A8(arg0, -arg0->unk14);

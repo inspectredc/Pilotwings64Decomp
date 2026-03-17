@@ -120,12 +120,12 @@ void jumbleHopperMovementFrame(JumbleHopperData* arg0, u8 arg1) {
             buttons = demoGetButtons(arg0->contIdx);
         }
         arg0->unk8 += D_8034F854;
-        arg0->unk10 = func_80313F08(&D_80368B20, FABS(yAxisInputs));
-        if (yAxisInputs < 0) {
+        arg0->unk10 = func_80313F08(&D_80368B20, ABS_NOEQ(yAxisInputs));
+        if (yAxisInputs < 0.0f) {
             arg0->unk10 = -arg0->unk10;
         }
-        arg0->unk14 = func_80313F08(&D_80368B20, FABS(xAxisInputs));
-        if (xAxisInputs < 0) {
+        arg0->unk14 = func_80313F08(&D_80368B20, ABS_NOEQ(xAxisInputs));
+        if (xAxisInputs < 0.0f) {
             arg0->unk14 = -arg0->unk14;
         }
         if ((buttons & A_BUTTON) && ((arg0->unk50 == 0) || (arg0->unk19C != 0))) {

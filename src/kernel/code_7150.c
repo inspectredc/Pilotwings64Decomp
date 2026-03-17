@@ -75,7 +75,7 @@ void func_80206318(UnkStruct_80204D94* arg0) {
 
     temp_a2 = arg0->unk250;
 
-    if (FABS(arg0->unk190.m[1][2]) <= 0.0001f) {
+    if (ABS_NOEQ(arg0->unk190.m[1][2]) <= 0.0001f) {
         temp_v0 = func_80206594(&temp_a2[0], &temp_a2[1], &temp_a2[2], &temp_a2[3]);
         switch (temp_v0) {
         case 0:

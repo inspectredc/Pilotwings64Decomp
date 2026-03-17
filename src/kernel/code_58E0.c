@@ -241,7 +241,7 @@ void func_80204FE4(s32 arg0) {
     func_8021EA38(temp_s0);
     _uvDobjsDraw(temp_s0, 0);
 
-    if (FABS(0.996f - gGfxFogFactor) < 0.0001f) {
+    if (ABS_NOEQ(0.996f - gGfxFogFactor) < 0.0001f) {
         var_v0 = 1;
     } else {
         var_v0 = 0;

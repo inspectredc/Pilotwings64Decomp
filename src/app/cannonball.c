@@ -394,27 +394,27 @@ void cannonAimingFrame(CannonballData* arg0) {
         arg0->zAxis -= 0.25f * arg0->unkBC * D_8034F854;
         arg0->xAxis -= 0.25f * arg0->unkC0 * D_8034F854;
 
-        if (FABS(arg0->unkBC) > 0 || FABS(arg0->unkC0) > 0) {
+        if (ABS_NOEQ(arg0->unkBC) > 0.0f || ABS_NOEQ(arg0->unkC0) > 0.0f) {
             arg0->unk11D = 1;
         }
     } else {
         // square result, but maintain +/-
         sp34 = SQ(arg0->unkBC);
-        if (arg0->unkBC < 0) {
+        if (arg0->unkBC < 0.0f) {
             sp34 = -sp34;
         }
         arg0->zAxis -= (1.0f / 2.0f) * sp34 * D_8034F854; // if 0.5f, tries to reuse reg
-        if (sp34 > 0) {
+        if (sp34 > 0.0f) {
             arg0->unk11D = 1;
         }
 
         // square result, but maintain +/-
         sp34 = SQ(arg0->unkC0);
-        if (arg0->unkC0 < 0) {
+        if (arg0->unkC0 < 0.0f) {
             sp34 = -sp34;
         }
         arg0->xAxis -= (1.0f / 2.0f) * sp34 * D_8034F854; // if 0.5f, tries to reuse reg
-        if (sp34 > 0) {
+        if (sp34 > 0.0f) {
             arg0->unk11D = 1;
         }
     }
@@ -437,19 +437,19 @@ void cannonAimingFrame(CannonballData* arg0) {
     if (D_80359A84 == 0) {
         switch (arg0->unkC) {
         case 0:
-            hudText_8031D8E0(0x111, 2.0f, 0);
+            hudText_8031D8E0(0x111, 2.0f, 0.0f);
             break;
         case 1:
-            hudText_8031D8E0(0x10, 2.0f, 0);
+            hudText_8031D8E0(0x10, 2.0f, 0.0f);
             break;
         case 2:
-            hudText_8031D8E0(0xD5, 2.0f, 0);
+            hudText_8031D8E0(0xD5, 2.0f, 0.0f);
             break;
         case 3:
-            hudText_8031D8E0(0x1A2, 2.0f, 0);
+            hudText_8031D8E0(0x1A2, 2.0f, 0.0f);
             break;
         default:
-            hudText_8031D8E0(0x1A2, 2.0f, 0);
+            hudText_8031D8E0(0x1A2, 2.0f, 0.0f);
             break;
         }
         D_80359A84 = 1;

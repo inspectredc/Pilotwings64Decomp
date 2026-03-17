@@ -635,7 +635,7 @@ f32 func_802DC074(Mtx4F* arg0, Vec3F* arg1, Vec3F* arg2, Vec3F* arg3, f32 arg4) 
         arg2->z *= arg4;
     }
 
-    return FABS(var_fa1);
+    return ABS_NOEQ(var_fa1);
 }
 
 f32 func_802DC1DC(Vec3F* arg0, Vec3F* arg1, Vec3F* arg2, f32 arg3, f32 arg4, f32 arg5) {

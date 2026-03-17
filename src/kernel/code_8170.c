@@ -58,7 +58,7 @@ void _uvDbSortHits(void) {
             continue;
         }
         for (j = i + 1; j < D_802634C4; j++) {
-            if (FABS(D_80263548[i] - D_80263548[j]) < 0.001f) {
+            if (ABS_NOEQ(D_80263548[i] - D_80263548[j]) < 0.001f) {
                 D_80263548[i] = 2.0f;
                 D_80263548[j] = 2.0f;
             }

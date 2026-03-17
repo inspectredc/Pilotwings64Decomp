@@ -80,7 +80,7 @@ void func_802D15D0(s32 arg0) {
     uvMat4RotateAxis(&sp80, ptr->unk10 * 0.01745329f, 'z'); // almost DEG_TO_RAD(1)
     uvMat4LocalTranslate(&sp80, ptr->unk24, 0.0f, 0.0f);
 
-    if (FABS(ptr->unk28) > 0.0f) {
+    if (ABS_NOEQ(ptr->unk28) > 0.0f) {
         uvMat4RotateAxis(&sp80, ptr->unk28 * 0.01745329f, 'y'); // almost DEG_TO_RAD(1)
     }
     if (ptr->unk0 != 0xFFFF) {

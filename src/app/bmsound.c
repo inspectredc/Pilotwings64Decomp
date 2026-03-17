@@ -70,10 +70,10 @@ void bmSoundCallback(s32 eventType, void* arg1, s32 eventData) {
         break;
     case 1:
         if (!(a1->unk410 & 0x01)) {
-            sp28 = FABS(a1->unk274.y);
+            sp28 = ABS_NOEQ(a1->unk274.y);
             var_fa1 = sp28 * 0.02f;
-            if (var_fa1 < 0) {
-                var_fa1 = 0;
+            if (var_fa1 < 0.0f) {
+                var_fa1 = 0.0f;
             } else if (var_fa1 > 1.0f) {
                 var_fa1 = 1.0f;
             }
@@ -91,10 +91,10 @@ void bmSoundCallback(s32 eventType, void* arg1, s32 eventData) {
             // effectively copy of code above with following differences:
             //  - demoRandF() * 0.0f (not used)
             //  - func_8033F904() un414/-0.5f -> unk415/0.5f
-            sp28 = FABS(a1->unk274.y);
+            sp28 = ABS_NOEQ(a1->unk274.y);
             var_fa1 = sp28 * 0.02f;
-            if (var_fa1 < 0) {
-                var_fa1 = 0;
+            if (var_fa1 < 0.0f) {
+                var_fa1 = 0.0f;
             } else if (var_fa1 > 1.0f) {
                 var_fa1 = 1.0f;
             }
@@ -102,8 +102,8 @@ void bmSoundCallback(s32 eventType, void* arg1, s32 eventData) {
             sp3C = (1.3f * var_fa1) + 0.4f + (temp_ft3 * 0.0f);
             sp28 = uvVec3Len(&a1->unk274);
             var_fa1 = (f32)((((demoRandF() * 0.4f) - 0.5f) + 1.0) * (0.02f * sp28));
-            if (var_fa1 < 0) {
-                var_fa1 = 0;
+            if (var_fa1 < 0.0f) {
+                var_fa1 = 0.0f;
             } else if (var_fa1 > 1.0f) {
                 var_fa1 = 1.0f;
             }
@@ -188,7 +188,7 @@ void bmSound_802D1334(BirdmanData* arg0) {
     if (!(D_8034F850 < (arg0->unk41C + 0.5f))) {
         arg0->unk41C = D_8034F850;
         for (i = 0; i < arg0->unk107; i++) {
-            temp_fv1 = func_80313F08(&D_80359648, FABS(arg0->unk140[i]));
+            temp_fv1 = func_80313F08(&D_80359648, ABS_NOEQ(arg0->unk140[i]));
             switch (arg0->unk108[i]) {
             case 4:
                 if ((arg0->unk15C != 0) && (arg0->unk104 == 2)) {
@@ -200,17 +200,17 @@ void bmSound_802D1334(BirdmanData* arg0) {
                 break;
             case 1:
                 if (arg0->unk106 != 0) {
-                    func_8033F758(0x17, temp_fv1, 1, 0);
+                    func_8033F758(0x17, temp_fv1, 1.0f, 0.0f);
                 }
                 break;
             case 2:
                 if (arg0->unk106 != 0) {
-                    func_8033F758(0x16, temp_fv1, 1, 0);
+                    func_8033F758(0x16, temp_fv1, 1.0f, 0.0f);
                 }
                 break;
             case 8:
                 if (arg0->unk106 != 0) {
-                    func_8033F758(0x18, temp_fv1, 1, 0);
+                    func_8033F758(0x18, temp_fv1, 1.0f, 0.0f);
                 }
                 break;
             }

@@ -606,7 +606,7 @@ void func_80338A14(void) {
                             spE4.x -= 360.0f;
                         }
 
-                        if (FABS(sp114[i].unk8 - spE4.x) < (sp114[i].unkC * 0.5f)) {
+                        if (ABS_NOEQ(sp114[i].unk8 - spE4.x) < (sp114[i].unkC * 0.5f)) {
                             sp84 = 1;
                         }
                     }
